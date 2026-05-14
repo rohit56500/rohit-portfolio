@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Rohit Kumar Bhagat | 3D Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Three.js for 3D animated background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- EmailJS for Gmail contact form -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <canvas id="threeBackground"></canvas>
+
+  <div class="noise"></div>
+  <div class="blob blob-one"></div>
+  <div class="blob blob-two"></div>
+  <div class="blob blob-three"></div>
+
+  <header class="site-header">
+    <nav class="nav-shell">
+      <a href="#home" class="brand">Rohit<span>.</span></a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#journey" class="nav-link">Journey</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-button" id="themeToggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="icon-button menu-toggle" id="menuToggle" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><i class="fa-solid fa-cube"></i>Personal Portfolio</p>
+
+          <h1>Hi, I’m <span>Rohit Kumar Bhagat</span></h1>
+
+          <h2>
+            <span id="typedRole">BSc Computing Student</span>
+            <span class="caret">|</span>
+          </h2>
+
+          <p class="hero-text">
+            I design and develop responsive websites, database-driven systems,
+            data-focused solutions, and creative digital products using modern technologies.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> View Projects</a>
+            <a href="#contact" class="btn btn-soft"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+            <a href="assets/Rohit-Kumar-Bhagat-CV.pdf" class="btn btn-outline" download><i class="fa-solid fa-download"></i> Download CV</a>
+          </div>
+
+          <div class="social-row">
+            <a href="https://github.com/rohit56500?tab=repositories" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rohit-bhagat-904b97329/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:rohitbhagat6574@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <aside class="hero-profile reveal">
+          <div class="profile-orbit"></div>
+
+          <div class="profile-card premium-card tilt-card">
+            <div class="profile-avatar">
+              <!-- Replace this icon with your real photo:
+              <img src="assets/profile.jpg" alt="Rohit Kumar Bhagat">
+              -->
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+
+            <h3>Rohit Kumar Bhagat</h3>
+            <p>BSc Computing Student</p>
+
+            <div class="mini-info">
+              <span><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</span>
+              <span><i class="fa-solid fa-building-columns"></i> The British College</span>
+            </div>
+
+            <div class="stat-grid">
+              <div><strong data-counter="13">0</strong><span>GitHub Repos</span></div>
+              <div><strong data-counter="9">0</strong><span>Certificates</span></div>
+              <div><strong data-counter="4">0</strong><span>Domains</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p>About Me</p>
+          <h2>Academic mindset, practical development, and creative execution.</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-panel premium-card reveal tilt-card">
+            <h3>Professional Summary</h3>
+            <p>
+              I am Rohit Kumar Bhagat, a BSc (Hons) Computing student at The British College, Nepal.
+              I am passionate about building responsive websites, database systems, machine learning projects,
+              and user-focused digital solutions. My technical experience includes HTML, CSS, JavaScript,
+              Python, C++, Java, PHP, SQL, Oracle Database, Oracle APEX, RStudio, Tableau, and data analytics tools.
+              Alongside technical development, I also have creative interests in UI/UX design, logo design,
+              social media design, and basic video editing.
+            </p>
+
+            <div class="focus-grid">
+              <div><i class="fa-solid fa-code"></i><strong>Frontend</strong><span>Responsive websites and modern UI.</span></div>
+              <div><i class="fa-solid fa-database"></i><strong>Database</strong><span>SQL, Oracle, ERD, EERD, APEX.</span></div>
+              <div><i class="fa-solid fa-brain"></i><strong>Data & AI</strong><span>Analytics, ML, and prompt engineering.</span></div>
+            </div>
+          </article>
+
+          <aside class="info-panel premium-card reveal tilt-card">
+            <div class="info-item"><span>Full Name</span><strong>Rohit Kumar Bhagat</strong></div>
+            <div class="info-item"><span>Education</span><strong>BSc (Hons) Computing, The British College</strong></div>
+            <div class="info-item"><span>Location</span><strong>Kathmandu, Nepal</strong></div>
+            <div class="info-item"><span>Email</span><strong><a href="mailto:rohitbhagat6574@gmail.com">rohitbhagat6574@gmail.com</a></strong></div>
+            <div class="info-item"><span>GitHub</span><strong><a href="https://github.com/rohit56500?tab=repositories" target="_blank">github.com/rohit56500</a></strong></div>
+            <div class="info-item"><span>LinkedIn</span><strong><a href="https://www.linkedin.com/in/rohit-bhagat-904b97329/" target="_blank">linkedin.com/in/rohit-bhagat</a></strong></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p>Skills Dashboard</p>
+          <h2>Technical, analytical, and creative capabilities.</h2>
+        </div>
+
+        <div class="skills-grid" id="skillsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p>GitHub Projects</p>
+          <h2>Repository-backed work across web, database, Python, C++, and AI.</h2>
+        </div>
+
+        <div class="toolbar reveal">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="projectSearch" placeholder="Search projects or technologies...">
+          </div>
+
+          <div class="filter-group" id="projectFilters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="web">Web</button>
+            <button class="filter" data-filter="database">Database</button>
+            <button class="filter" data-filter="python">Python</button>
+            <button class="filter" data-filter="cpp">C++</button>
+            <button class="filter" data-filter="ai">AI / Notebook</button>
+            <button class="filter" data-filter="portfolio">Portfolio</button>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="certificates">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p>Certificates</p>
+          <h2>Professional certifications and verified learning evidence.</h2>
+        </div>
+
+        <div class="certificate-stats reveal">
+          <div><strong>2</strong><span>Oracle Certifications</span></div>
+          <div><strong>2</strong><span>Job Simulations</span></div>
+          <div><strong>9</strong><span>Total Certificates</span></div>
+          <div><strong>4+</strong><span>Learning Domains</span></div>
+        </div>
+
+        <div class="filter-group certificate-filters reveal" id="certificateFilters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="oracle">Oracle</button>
+          <button class="filter" data-filter="analytics">Data Analytics</button>
+          <button class="filter" data-filter="python">Python</button>
+          <button class="filter" data-filter="sql">SQL</button>
+          <button class="filter" data-filter="ai">AI</button>
+          <button class="filter" data-filter="simulation">Job Simulation</button>
+        </div>
+
+        <div class="timeline" id="certificatesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p>Services</p>
+          <h2>What I Can Build, Design, and Support</h2>
+          <span class="section-subtitle">
+            A professional combination of frontend development, database design,
+            data analytics, academic project support, and creative digital services.
+          </span>
+        </div>
+
+        <div class="service-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p>Learning Journey</p>
+          <h2>A structured path from computing fundamentals to professional practice.</h2>
+        </div>
+
+        <div class="journey-list">
+          <div class="journey-item reveal tilt-card"><span>01</span><div><h3>BSc (Hons) Computing</h3><p>Building academic foundations in programming, systems, databases, software development, and data-driven problem solving at The British College.</p></div></div>
+          <div class="journey-item reveal tilt-card"><span>02</span><div><h3>Frontend Development Projects</h3><p>Created responsive websites including cafe, store, consultancy, dynamic website, and personal portfolio projects.</p></div></div>
+          <div class="journey-item reveal tilt-card"><span>03</span><div><h3>Database and SQL Projects</h3><p>Designed and implemented database systems using SQL, Oracle, PL/SQL, ERD, EERD, normalization, and query development.</p></div></div>
+          <div class="journey-item reveal tilt-card"><span>04</span><div><h3>Data, AI, and Certification Growth</h3><p>Completed Oracle, Deloitte/Forage, Infosys, SQL, Python, data analytics, and prompt engineering learning achievements.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p>Contact</p>
+          <h2>Let’s build something professional together.</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-panel premium-card reveal tilt-card">
+            <h3>Get in touch</h3>
+            <p>
+              If you want to contact me for web development, database projects,
+              design work, data analytics, or collaboration, send me a message directly.
+            </p>
+
+            <a class="contact-link" href="mailto:rohitbhagat6574@gmail.com"><i class="fa-solid fa-envelope"></i> rohitbhagat6574@gmail.com</a>
+            <a class="contact-link" href="https://github.com/rohit56500?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i> GitHub Repositories</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/rohit-bhagat-904b97329/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn Profile</a>
+            <a class="contact-link" href="#"><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</a>
+          </div>
+
+          <form class="contact-form premium-card reveal tilt-card" id="contactForm" novalidate>
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name">
+              <small></small>
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="your@email.com">
+              <small></small>
+            </div>
+
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" placeholder="Project / collaboration subject">
+              <small></small>
+            </div>
+
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" rows="6" placeholder="Write your message..."></textarea>
+              <small></small>
+            </div>
+
+            <button class="btn btn-primary submit-btn" id="sendBtn" type="submit">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+              <b class="loader"></b>
+            </button>
+
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="brand footer-brand">Rohit<span>.</span></a>
+        <p>Building responsive websites, database systems, and creative digital solutions.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="social-row">
+        <a href="https://github.com/rohit56500?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/rohit-bhagat-904b97329/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:rohitbhagat6574@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 Rohit Kumar Bhagat. All Rights Reserved.</p>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
