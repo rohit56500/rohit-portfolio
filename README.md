@@ -1,58 +1,7 @@
-# Rohit Kumar Bhagat 3D Premium Portfolio
+# Rohit Kumar Bhagat | Personal Portfolio Website
 
-## Files
-- index.html
-- style.css
-- script.js
-- assets/certificates/
+This is my modern, responsive, and animated personal portfolio website. It is designed to showcase my education, technical skills, certificates, services, GitHub projects, and contact information in a professional way.
 
-## How to run
-Open `index.html` in your browser or use VS Code Live Server.
+## About Me
 
-## EmailJS setup
-In `script.js`, replace:
-- `YOUR_PUBLIC_KEY`
-- `YOUR_SERVICE_ID`
-- `YOUR_TEMPLATE_ID`
-
-Template variables:
-- {{from_name}}
-- {{from_email}}
-- {{subject}}
-- {{message}}
-- {{to_email}}
-
-## Add your profile photo
-Put your image here:
-`assets/profile.jpg`
-
-Then replace the icon in `index.html` with:
-`<img src="assets/profile.jpg" alt="Rohit Kumar Bhagat">`
-
-## Add CV
-Put your CV file here:
-`assets/Rohit-Kumar-Bhagat-CV.pdf`
-
-## 3D Features
-- Three.js animated background
-- Rotating 3D rings
-- 3D tilt cards
-- Floating profile card
-- Advanced service cards
-- Gradient glow borders
-
-
-## Final Responsive Upgrade
-This version has been optimized for:
-- 320px small phones
-- 360px Android phones
-- 375px / 390px iPhones
-- 414px large phones
-- 640px mobile landscape
-- 768px tablets
-- 820px iPad portrait
-- 1024px iPad/laptop
-- 1200px laptops
-- 1440px+ desktop screens
-
-It also disables heavy 3D hover movement on touch devices to avoid layout issues.
+My name is Rohit Kumar Bhagat. I am a BSc (Hons) Computing student at The British College, Nepal. I am interested in frontend web development, database systems, SQL, Oracle, machine learning, data analytics, UI/UX design, graphic design, and video editing.
