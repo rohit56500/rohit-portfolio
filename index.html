@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Rohit Kumar Bhagat | Frontend Developer Portfolio </title>
+  <title>Rohit Kumar Bhagat | Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,9 @@
         <li><a href="#certificates" class="nav-link">Certificates</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#journey" class="nav-link">Journey</a></li>
+        <li><a href="#rating" class="nav-link">Rating</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        
       </ul>
 
       <div class="nav-actions">
@@ -251,6 +253,64 @@
         </div>
       </div>
     </section>
+    
+</section>
+
+<!-- ================= RATING SECTION ================= -->
+<section class="section" id="rating">
+  <div class="container">
+    <div class="section-heading reveal">
+      <p>Rate My Portfolio</p>
+      <h2>Your feedback helps me improve my website.</h2>
+      <span class="section-subtitle">
+        Please rate my portfolio and share your feedback about the design, projects, animations, and user experience.
+      </span>
+    </div>
+
+    <div class="rating-wrapper premium-card reveal tilt-card">
+      <form id="ratingForm" class="rating-form">
+        <div class="rating-stars" id="ratingStars">
+          <i class="fa-solid fa-star" data-value="1"></i>
+          <i class="fa-solid fa-star" data-value="2"></i>
+          <i class="fa-solid fa-star" data-value="3"></i>
+          <i class="fa-solid fa-star" data-value="4"></i>
+          <i class="fa-solid fa-star" data-value="5"></i>
+        </div>
+
+        <input type="hidden" id="ratingValue" value="0">
+
+        <div class="form-row">
+          <label for="ratingName">Name</label>
+          <input id="ratingName" type="text" placeholder="Your name">
+          <small></small>
+        </div>
+
+        <div class="form-row">
+          <label for="ratingEmail">Email</label>
+          <input id="ratingEmail" type="email" placeholder="your@email.com">
+          <small></small>
+        </div>
+
+        <div class="form-row">
+          <label for="ratingMessage">Feedback</label>
+          <textarea id="ratingMessage" rows="5" placeholder="Write your feedback..."></textarea>
+          <small></small>
+        </div>
+
+        <button class="btn btn-primary submit-btn" id="ratingBtn" type="submit">
+          <span>Submit Rating</span>
+          <i class="fa-solid fa-star"></i>
+          <b class="loader"></b>
+        </button>
+
+        <p class="form-status" id="ratingStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+
 
     <section class="section" id="contact">
       <div class="container">
