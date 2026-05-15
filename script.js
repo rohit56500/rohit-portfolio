@@ -1050,4 +1050,144 @@ if (contactForm) {
   optimizeForResponsiveDevices();
   window.addEventListener("resize", optimizeForResponsiveDevices);
 
+
+
+  
+/* ======================
+   RATING FORM WITH EMAILJS
+====================== */
+
+const ratingForm = document.getElementById("ratingForm");
+const ratingStars = document.querySelectorAll("#ratingStars i");
+const ratingValue = document.getElementById("ratingValue");
+const ratingBtn = document.getElementById("ratingBtn");
+const ratingStatus = document.getElementById("ratingStatus");
+
+let selectedRating = 0;
+
+if (ratingStars.length > 0) {
+  ratingStars.forEach(star => {
+    star.addEventListener("click", () => {
+      selectedRating = Number(star.dataset.value);
+
+      if (ratingValue) {
+        ratingValue.value = selectedRating;
+      }
+
+      ratingStars.forEach(item => {
+        const value = Number(item.dataset.value);
+
+        if (value <= selectedRating) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+    });
+  });
+}
+
+function setRatingError(id, message) {
+  const input = document.getElementById(id);
+  const small = input?.closest(".form-row")?.querySelector("small");
+
+  if (small) {
+    small.textContent = message;
+  }
+}
+
+function clearRatingErrors() {
+  document.querySelectorAll("#ratingForm .form-row small").forEach(small => {
+    small.textContent = "";
+  });
+
+  if (ratingStatus) {
+    ratingStatus.textContent = "";
+    ratingStatus.className = "form-status";
+  }
+}
+
+if (ratingForm) {
+  ratingForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    clearRatingErrors();
+
+    const name = document.getElementById("ratingName").value.trim();
+    const email = document.getElementById("ratingEmail").value.trim();
+    const feedback = document.getElementById("ratingMessage").value.trim();
+
+    let ok = true;
+
+    if (selectedRating === 0) {
+      ratingStatus.textContent = "Please select a star rating.";
+      ratingStatus.classList.add("error");
+      ok = false;
+    }
+
+    if (!name) {
+      setRatingError("ratingName", "Name is required.");
+      ok = false;
+    }
+
+    if (!email) {
+      setRatingError("ratingEmail", "Email is required.");
+      ok = false;
+    } else if (!validEmail(email)) {
+      setRatingError("ratingEmail", "Enter a valid email address.");
+      ok = false;
+    }
+
+    if (!feedback) {
+      setRatingError("ratingMessage", "Feedback is required.");
+      ok = false;
+    }
+
+    if (!ok) return;
+
+    ratingBtn.classList.add("loading");
+    ratingBtn.disabled = true;
+
+    emailjs
+      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: name,
+        from_email: email,
+        subject: "Portfolio Rating",
+        message: `Rating: ${selectedRating} / 5
+
+Feedback:
+${feedback}`,
+        to_email: "rohitbhagat6574@gmail.com"
+      })
+      .then(() => {
+        ratingStatus.textContent =
+          "Thank you! Your rating has been submitted successfully.";
+        ratingStatus.classList.add("success");
+
+        ratingForm.reset();
+        selectedRating = 0;
+
+        if (ratingValue) {
+          ratingValue.value = 0;
+        }
+
+        ratingStars.forEach(star => {
+          star.classList.remove("active");
+        });
+      })
+      .catch(error => {
+        console.error("Rating EmailJS error:", error);
+
+        ratingStatus.textContent =
+          "EmailJS Error: " +
+          (error.text || error.message || "Something went wrong.");
+
+        ratingStatus.classList.add("error");
+      })
+      .finally(() => {
+        ratingBtn.classList.remove("loading");
+        ratingBtn.disabled = false;
+      });
+  });
+}
 });
