@@ -1050,9 +1050,6 @@ if (contactForm) {
   optimizeForResponsiveDevices();
   window.addEventListener("resize", optimizeForResponsiveDevices);
 
-
-
-  
 /* ======================
    RATING FORM WITH EMAILJS
 ====================== */
@@ -1190,4 +1187,6 @@ ${feedback}`,
       });
   });
 }
+
+
 });
