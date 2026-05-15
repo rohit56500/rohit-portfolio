@@ -914,106 +914,99 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ======================
      EMAILJS CONTACT FORM
   ====================== */
-
-  /* ======================
+/* ======================
    EMAILJS CONTACT FORM
 ====================== */
 
-const EMAILJS_PUBLIC_KEY = "Ei8H7OXYLSdPWrpRP";
+/* ======================
+   EMAILJS CONTACT FORM
+====================== */
+
+const EMAILJS_PUBLIC_KEY = "aLeIUCkybPTaftGXQ";
 const EMAILJS_SERVICE_ID = "service_4h7fftk";
 const EMAILJS_TEMPLATE_ID = "template_22q1mlk";
 
-if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+if (typeof emailjs !== "undefined") {
   emailjs.init({
     publicKey: EMAILJS_PUBLIC_KEY
   });
 }
 
-  const contactForm = document.getElementById("contactForm");
-  const sendBtn = document.getElementById("sendBtn");
-  const formStatus = document.getElementById("formStatus");
+const contactForm = document.getElementById("contactForm");
+const sendBtn = document.getElementById("sendBtn");
+const formStatus = document.getElementById("formStatus");
 
-  function setError(id, message) {
-    const input = document.getElementById(id);
-    const small = input?.closest(".form-row")?.querySelector("small");
+function setError(id, message) {
+  const input = document.getElementById(id);
+  const small = input?.closest(".form-row")?.querySelector("small");
 
-    if (small) {
-      small.textContent = message;
+  if (small) {
+    small.textContent = message;
+  }
+}
+
+function clearFormErrors() {
+  document.querySelectorAll(".form-row small").forEach(small => {
+    small.textContent = "";
+  });
+
+  if (formStatus) {
+    formStatus.textContent = "";
+    formStatus.className = "form-status";
+  }
+}
+
+function validEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+if (contactForm) {
+  contactForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    clearFormErrors();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    let ok = true;
+
+    if (!name) {
+      setError("name", "Name is required.");
+      ok = false;
     }
-  }
 
-  function clearFormErrors() {
-    document.querySelectorAll(".form-row small").forEach(small => {
-      small.textContent = "";
-    });
-
-    if (formStatus) {
-      formStatus.textContent = "";
-      formStatus.className = "form-status";
+    if (!email) {
+      setError("email", "Email is required.");
+      ok = false;
+    } else if (!validEmail(email)) {
+      setError("email", "Enter a valid email address.");
+      ok = false;
     }
-  }
 
-  function validEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
+    if (!subject) {
+      setError("subject", "Subject is required.");
+      ok = false;
+    }
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", event => {
-      event.preventDefault();
+    if (!message) {
+      setError("message", "Message is required.");
+      ok = false;
+    }
 
-      clearFormErrors();
+    if (!ok) return;
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
+    sendBtn.classList.add("loading");
+    sendBtn.disabled = true;
 
-      let ok = true;
-
-      if (!name) {
-        setError("name", "Name is required.");
-        ok = false;
-      }
-
-      if (!email) {
-        setError("email", "Email is required.");
-        ok = false;
-      } else if (!validEmail(email)) {
-        setError("email", "Enter a valid email address.");
-        ok = false;
-      }
-
-      if (!subject) {
-        setError("subject", "Subject is required.");
-        ok = false;
-      }
-
-      if (!message) {
-        setError("message", "Message is required.");
-        ok = false;
-      }
-
-      if (!ok) return;
-
-      if (
-      const EMAILJS_PUBLIC_KEY = "Ei8H7OXYLSdPWrpRP";
-      const EMAILJS_SERVICE_ID = "service_4h7fftk";
-      const EMAILJS_TEMPLATE_ID = "template_22q1mlk";
-      ) {
-        formStatus.textContent =
-          "EmailJS is not connected yet. Please add your EmailJS Public Key, Service ID, and Template ID.";
-        formStatus.classList.add("error");
-        return;
-      }
-
-      sendBtn.classList.add("loading");
-      sendBtn.disabled = true;
-
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    emailjs
+      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: name,
         from_email: email,
-        subject,
-        message,
+        subject: subject,
+        message: message,
         to_email: "rohitbhagat6574@gmail.com"
       })
       .then(() => {
@@ -1023,16 +1016,18 @@ if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") 
       })
       .catch(error => {
         console.error("EmailJS error:", error);
-        formStatus.textContent = "Something went wrong. Please try again.";
+
+        formStatus.textContent =
+          "EmailJS Error: " + (error.text || error.message || "Something went wrong.");
+
         formStatus.classList.add("error");
       })
       .finally(() => {
         sendBtn.classList.remove("loading");
         sendBtn.disabled = false;
       });
-    });
-  }
-
+  });
+}
   /* ======================
      FINAL RESPONSIVE OPTIMIZER
   ====================== */
