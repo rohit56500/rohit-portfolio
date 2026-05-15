@@ -915,15 +915,19 @@ document.addEventListener("DOMContentLoaded", () => {
      EMAILJS CONTACT FORM
   ====================== */
 
-  const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-  const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+  /* ======================
+   EMAILJS CONTACT FORM
+====================== */
 
-  if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
-    emailjs.init({
-      publicKey: EMAILJS_PUBLIC_KEY
-    });
-  }
+const EMAILJS_PUBLIC_KEY = "Ei8H7OXYLSdPWrpRP";
+const EMAILJS_SERVICE_ID = "service_4h7fftk";
+const EMAILJS_TEMPLATE_ID = "template_22q1mlk";
+
+if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+  emailjs.init({
+    publicKey: EMAILJS_PUBLIC_KEY
+  });
+}
 
   const contactForm = document.getElementById("contactForm");
   const sendBtn = document.getElementById("sendBtn");
@@ -992,9 +996,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!ok) return;
 
       if (
-        EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY" ||
-        EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" ||
-        EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID"
+      const EMAILJS_PUBLIC_KEY = "Ei8H7OXYLSdPWrpRP";
+      const EMAILJS_SERVICE_ID = "service_4h7fftk";
+      const EMAILJS_TEMPLATE_ID = "template_22q1mlk";
       ) {
         formStatus.textContent =
           "EmailJS is not connected yet. Please add your EmailJS Public Key, Service ID, and Template ID.";
