@@ -1948,3 +1948,15 @@ svg {
     font-size: 1.9rem;
   }
 }
+/* Rating section spacing fix */
+#rating {
+  padding-bottom: 140px;
+}
+
+.rating-wrapper {
+  margin-bottom: 60px;
+}
+
+.rating-wrapper .submit-btn {
+  margin-bottom: 10px;
+}
